@@ -3,4 +3,4 @@ Verkkopalveluprojektiin liittyvä Verkkokauppa harjoitus
 sisältää HacknPlanin käytön
 Graafisen suunnittelun
 tietokannan suunnittelun MySQL/SQL
-React/PHP käyttäliittymän
+React/PHP käyttöliittymän
