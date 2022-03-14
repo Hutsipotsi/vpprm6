@@ -1,2 +1,6 @@
 # vpprm6
-Verkkokauppa harjoitus
+Verkkopalveluprojektiin liittyvä Verkkokauppa harjoitus
+sisältää HacknPlanin käytön
+Graafisen suunnittelun
+tietokannan suunnittelun MySQL/SQL
+React/PHP käyttäliittymän
