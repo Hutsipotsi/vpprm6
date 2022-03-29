@@ -1,8 +1,6 @@
 CREATE TABLE product (
- prodnumber INTEGER PRIMARY KEY,
- prodname VARCHAR(20) NOT NULL,
- price DECIMAL(5,2),
- cost DECIMAL(5,2),
- prodcategory SMALLINT NOT NULL,
- FOREIGN KEY (prodcategory)
- REFERENCES productgroup (prodcategory)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_sv_0900_ai_ci;
+prodnumber INTEGER PRIMARY KEY,
+prodname VARCHAR(100) NOT NULL,
+price DECIMAL(10,2),
+cost DECIMAL(10,2),
+prodcategory VARCHAR(40) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
