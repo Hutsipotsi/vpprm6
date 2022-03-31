@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS kiekkokulma;
 CREATE DATABASE kiekkokulma;
 
 CREATE TABLE productgroup (
-prodcategory SMALLINT PRIMARY KEY,
+prodcategory SMALLINT PRIMARY KEY AUTO_INCREMENT,
 groupname CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into productgroup (groupname) values ('disc');
