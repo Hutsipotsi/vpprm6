@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS kiekkokulma;
 CREATE DATABASE kiekkokulma;
 
 CREATE TABLE productgroup (
-prodcategory SMALLINT PRIMARY KEY AUTO_INCREMENT,
+prodcategory VARCHAR(40) PRIMARY KEY,
 groupname CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into productgroup (groupname) values ('disc');
@@ -11,12 +11,16 @@ insert into productgroup (groupname) values ('basket');
 insert into productgroup (groupname) values ('bag');
 
 CREATE TABLE product (
-prodnumber INTEGER PRIMARY KEY AUTO_INCREMENT,
+id INTEGER PRIMARY KEY AUTO_INCREMENT,
 prodname VARCHAR(100) NOT NULL,
 price DECIMAL(10,2),
+image VARCHAR(50),
 cost DECIMAL(10,2),
 prodcategory VARCHAR(40) NOT NULL,
-index prodcategory(prodcategory)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+index prodcategory(prodcategory),
+foreign key (prodcategory) references productgroup(prodcategory)
+on delete restrict
+); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into product (prodname, price, prodcategory) values ('basket', 10, 'baskets');
 insert into product (prodname, price, prodcategory) values ('disc', 10, 'discs');
