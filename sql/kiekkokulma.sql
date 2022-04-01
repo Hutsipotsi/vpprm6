@@ -6,9 +6,9 @@ CREATE TABLE productgroup (
 id int PRIMARY KEY AUTO_INCREMENT,
 groupname CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into productgroup (groupname) values ('disc');
-insert into productgroup (groupname) values ('basket');
-insert into productgroup (groupname) values ('bag');
+insert into productgroup (groupname) values ('kiekot');
+insert into productgroup (groupname) values ('korit');
+insert into productgroup (groupname) values ('reput');
 
 CREATE TABLE product (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -22,8 +22,8 @@ foreign key (prodcategory) references productgroup(id)
 on delete restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into product (prodname, price, prodcategory) values ('basket', 10, 1);
-insert into product (prodname, price, prodcategory) values ('disc', 10, 2);
+insert into product (prodname, price, prodcategory) values ('korit', 10, 1);
+insert into product (prodname, price, prodcategory) values ('kiekot', 10, 2);
 
 CREATE TABLE customer (
  cusname VARCHAR(8) PRIMARY KEY,
