@@ -4,11 +4,11 @@ require_once '../inc/headers.php';
 
 $uri = parse_url(filter_input(INPUT_SERVER, 'PATH_INFO'),PHP_URL_PATH);
 $parameters = explode('/',$uri);
-$category = $parameters[0];
+$category = $parameters[1];
 
 try {
     $db = openDb();
-    $sql = "select * from productgroup where groupname = $category";
+    $sql = "select * from productgroup where id = $category";
     $query = $db->query($sql);
     $productgroup = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -18,9 +18,9 @@ try {
 
     header('HTTP/1.1 200 OK');
     echo json_encode(array(
-        "productgroup" => $productgroup['groupname'],
-        "product" => $products
-    ));
+        "productgroup" => $productgroup['name'],
+        "products" => $products
+    ), JSON_PRETTY_PRINT);
 }
 
 catch (PDOException $pdoex) {
