@@ -6,13 +6,13 @@ USE kiekkokulma;
 
 CREATE TABLE productgroup (
 id int PRIMARY KEY AUTO_INCREMENT,
-groupname CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+name CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into productgroup (groupname) values ('Kiekot'), ('Korit'), ('Reput');
 
 CREATE TABLE product (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
-prodname VARCHAR(100) NOT NULL,
+name VARCHAR(100) NOT NULL,
 price DECIMAL(10,2),
 image VARCHAR(50),
 cost DECIMAL(10,2),
