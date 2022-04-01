@@ -8,7 +8,7 @@ CREATE TABLE productgroup (
 id int PRIMARY KEY AUTO_INCREMENT,
 name CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into productgroup (groupname) values ('Kiekot'), ('Korit'), ('Reput');
+insert into productgroup (name) values ('Kiekot'), ('Korit'), ('Reput');
 
 CREATE TABLE product (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -22,17 +22,17 @@ foreign key (prodcategory) references productgroup(id)
 on delete restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into product (prodname, price, prodcategory) values 
+insert into product (name, price, prodcategory) values 
 ('DX Valkyrie', 10.90, 1),
 ('Star Boss', 18.90, 1),
 ('DX Leopard', 10.90, 1),
 ('DX Aero', 12.90, 1),
 ('DX Archangel', 10.90, 1),
 ('Champion Krait', 17.90, 1);
-insert into product (prodname, price, prodcategory) values
+insert into product (name, price, prodcategory) values
 ('DISCatcher Traveler', 149.00, 2),
 ('DISCatcher EZ Target', 199.00, 2);
-insert into product (prodname, price, prodcategory) values
+insert into product (name, price, prodcategory) values
 ('GRIPeq G2 Shoulder Bag', 129.00, 3),
 ('GRIPeq BX3 Tour Bag', 129.00, 3),
 ('Innova Discover Pack', 29.90, 3),
