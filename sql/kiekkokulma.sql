@@ -22,8 +22,21 @@ foreign key (prodcategory) references productgroup(id)
 on delete restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into product (prodname, price, prodcategory) values ('korit', 10, 1);
-insert into product (prodname, price, prodcategory) values ('kiekot', 10, 2);
+insert into product (prodname, price, prodcategory) values 
+('DX Valkyrie', 10.90, 1),
+('Star Boss', 18.90, 1),
+('DX Leopard', 10.90, 1),
+('DX Aero', 12.90, 1),
+('DX Archangel', 10.90, 1),
+('Champion Krait', 17.90, 1);
+insert into product (prodname, price, prodcategory) values
+('DISCatcher Traveler', 149.00, 2),
+('DISCatcher EZ Target', 199.00, 2);
+insert into product (prodname, price, prodcategory) values
+('GRIPeq G2 Shoulder Bag', 129.00, 3),
+('GRIPeq BX3 Tour Bag', 129.00, 3),
+('Innova Discover Pack', 29.90, 3),
+('Super HeroPack 2.0', 129.00, 3);
 
 CREATE TABLE customer (
  cusname VARCHAR(8) PRIMARY KEY,
