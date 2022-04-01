@@ -2,13 +2,13 @@ DROP DATABASE IF EXISTS kiekkokulma;
 
 CREATE DATABASE kiekkokulma;
 
+USE kiekkokulma;
+
 CREATE TABLE productgroup (
 id int PRIMARY KEY AUTO_INCREMENT,
 groupname CHAR(10)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into productgroup (groupname) values ('kiekot');
-insert into productgroup (groupname) values ('korit');
-insert into productgroup (groupname) values ('reput');
+insert into productgroup (groupname) values ('kiekot', 'korit', 'reput');
 
 CREATE TABLE product (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
