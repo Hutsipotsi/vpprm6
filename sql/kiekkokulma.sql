@@ -35,17 +35,28 @@ CREATE TABLE discproperty (
     foreign key (disc) references product(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into product (name, price, manufacturer, prodcategory) values 
-('Innova DX Valkyrie', 'Innova'10.90, 1),
-('Innova Star Boss', 'Innova', 18.90, 1),
-('Innova DX Leopard', 'Innova', 10.90, 1),
-('Innova DX Aero', 'Innova', 12.90, 1),
-('Innova DX Aviar', 'Innova', 10.90, 1),
-('Innova DX Archangel', 'Innova', 10.90, 1),
-('Innova Champion Krait', 'Innova', 17.90, 1),
-('Innova Champion TeeBird', 'Innova', 20.90, 1),
-('Prodigy 400 D3', 'Prodigy', 17.90, 1),
-('Westside Discs BT Origio Pohjan Poika', 'Westside Discs', 10.90, 1);
+
+insert into product (name, price, image, manufacturer, prodcategory) values 
+('Innova DX Valkyrie', 10.90, 'innova_dx_valkyrie.jpg', 'Innova', 1),
+('Innova Star Boss', 18.90, 'innova_star_boss.jpg', 'Innova', 1),
+('Innova DX Leopard', 10.90, 'innova_dx_leopard.jpg', 'Innova', 1),
+('Innova DX Aero', 12.90, 'innova_dx_aero.jpg', 'Innova', 1),
+('Innova DX Aviar', 10.90, 'innova_dx_aviar.jpg', 'Innova', 1),
+('Innova DX Archangel', 10.90, 'innova_dx_archangel.jpg', 'Innova', 1),
+('Innova Champion Krait', 17.90, 'innova_champion_krait.jpg', 'Innova', 1),
+('Innova Champion TeeBird', 20.90, 'innova_champion_teebird.jpg', 'Innova', 1),
+('Prodigy 400 D3', 17.90, 'prodigy_400_d3.jpg', 'Prodigy', 1),
+('Westside Discs BT Origio Pohjan Poika', 10.90, 'westside-discs_bt-origio_pohjan-poika.jpg', 'Westside Discs', 1);
+
+insert into product (name, price, image, prodcategory) values
+('DISCatcher Traveler', 149.00, 'disc-golf4.jpg', 2),
+('DISCatcher EZ Target', 199.00, 'disc-golf5.jpg', 2);
+
+insert into product (name, price, image, prodcategory) values
+('GRIPeq G2 Shoulder Bag', 129.00, 'backpack.png', 3),
+('GRIPeq BX3 Tour Bag', 129.00, 'disc-golf-bag.jpg', 3),
+('Innova Discover Pack', 29.90, 'disc-golf-bag.jpg', 3),
+('Super HeroPack 2.0', 129.00, 'backpack.png', 3);
 
 insert into discproperty (disc, type, plastic, speed, glide, turn, fade) values
 (1, 'Pituusdraiveri', 'DX', 9, 4, -2, 2),
@@ -59,14 +70,6 @@ insert into discproperty (disc, type, plastic, speed, glide, turn, fade) values
 (9, 'Pituusdraiveri', '400', 13, 6, -2, 2),
 (10, 'Pituusdraiveri', 'BT Origio', 10, 5, -1, 2);
 
-insert into product (name, price, prodcategory) values
-('DISCatcher Traveler', 149.00, 2),
-('DISCatcher EZ Target', 199.00, 2);
-insert into product (name, price, prodcategory) values
-('GRIPeq G2 Shoulder Bag', 129.00, 3),
-('GRIPeq BX3 Tour Bag', 129.00, 3),
-('Innova Discover Pack', 29.90, 3),
-('Super HeroPack 2.0', 129.00, 3);
 
 CREATE TABLE customer (
  cusname VARCHAR(8) PRIMARY KEY,
