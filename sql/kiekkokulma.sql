@@ -48,6 +48,9 @@ insert into product (name, price, image, manufacturer, prodcategory) values
 ('Prodigy 400 D3', 17.90, 'prodigy_400_d3.jpg', 'Prodigy', 1),
 ('Westside Discs BT Origio Pohjan Poika', 10.90, 'westside-discs_bt-origio_pohjan-poika.jpg', 'Westside Discs', 1);
 
+insert into product (name, price, image, prodcategory) values 
+('Viking Discs Royal Basket', 169.90, 'disc-golf3.jpg', 2);
+
 insert into product (name, price, image, prodcategory) values
 ('DISCatcher Traveler', 149.00, 'disc-golf4.jpg', 2),
 ('DISCatcher EZ Target', 199.00, 'disc-golf5.jpg', 2);
