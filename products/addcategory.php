@@ -13,7 +13,7 @@ try {
     $db = openDb();
     $sql = "insert into productgroup (name) values ('$name')";
     executeInsert($db,$sql);
-  /*   $data = array('id' => $db->lastInsertId(), 'name' => $name); */
+  $data = array('id' => $db->lastInsertId(), 'name' => $name);
     print json_encode($data);
    
 } catch(PDOException $pdoex) {
