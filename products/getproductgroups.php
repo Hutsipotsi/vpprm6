@@ -6,9 +6,6 @@ require_once '../inc/headers.php';
 // $parameters = explode('/',$uri);
 // $category = $parameters[1];
 
-
-
-
 try {
     $db = openDb();
     selectAsJson($db, 'select * from productgroup');
