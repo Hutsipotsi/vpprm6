@@ -98,3 +98,11 @@ prodnumber INTEGER NOT NULL,
 pcs INTEGER NOT NULL,
 FOREIGN KEY (ordernumber)
 REFERENCES customorder (ordernumber)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE registered_user(  
+    reg_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    fname VARCHAR(70) NOT NULL,
+    lname VARCHAR(70) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
