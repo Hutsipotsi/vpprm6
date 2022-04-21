@@ -49,17 +49,17 @@ insert into product (name, price, image, manufacturer, prodcategory) values
 ('Westside Discs BT Origio Pohjan Poika', 10.90, 'westside-discs_bt-origio_pohjan-poika.jpg', 'Westside Discs', 1);
 
 insert into product (name, price, image, prodcategory) values 
-('Viking Discs Royal Basket', 169.90, 'disc-golf3.jpg', 2);
+('Viking Discs Royal', 169.90, 'disc-catcher3.jpg', 2);
 
 insert into product (name, price, image, prodcategory) values
-('DISCatcher Traveler', 149.00, 'disc-golf4.jpg', 2),
-('DISCatcher EZ Target', 199.00, 'disc-golf5.jpg', 2);
+('DISCatcher Traveler', 149.00, 'disc-catcher4.jpg', 2),
+('DISCatcher EZ Target', 199.00, 'disc-catcher2.jpg', 2);
 
 insert into product (name, price, image, prodcategory) values
 ('GRIPeq G2 Shoulder Bag', 129.00, 'backpack.png', 3),
-('GRIPeq BX3 Tour Bag', 129.00, 'disc-golf-bag.jpg', 3),
-('Innova Discover Pack', 29.90, 'disc-golf-bag.jpg', 3),
-('Super HeroPack 2.0', 129.00, 'backpack.png', 3);
+('GRIPeq BX3 Tour Bag', 129.00, 'bag1.jpg', 3),
+('Innova Discover Pack', 29.90, 'bag3.jpg', 3),
+('Super HeroPack 2.0', 129.00, 'bag3.png', 3);
 
 insert into discproperty (disc, type, plastic, speed, glide, turn, fade) values
 (1, 'Pituusdraiveri', 'DX', 9, 4, -2, 2),
