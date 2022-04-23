@@ -75,29 +75,33 @@ insert into discproperty (disc, type, plastic, speed, glide, turn, fade) values
 
 
 CREATE TABLE customer (
- cusname VARCHAR(8) PRIMARY KEY,
- name VARCHAR(20) NOT NULL,
- contact VARCHAR(15),
- street VARCHAR(40),
- postal CHAR(5),
- city VARCHAR(20),
- phone VARCHAR(20))
- ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    id int primary key auto_increment,
+    firstname varchar(50) not null,
+    lastname varchar(50) not null,
+    contact VARCHAR(15),
+    street VARCHAR(40),
+    postal CHAR(5),
+    city VARCHAR(20),
+    phone VARCHAR(20)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
  CREATE TABLE customorder (
- ordernumber INTEGER PRIMARY KEY,
- cusname VARCHAR(8) NOT NULL,
- orderdate DATETIME NOT NULL,
- mode CHAR(1),
- savedate DATETIME) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+     id int primary key auto_increment,
+     order_date timestamp default current_timestamp,
+     customer_id int not null,
+     index customer_id(customer_id),
+     foreign key (customer_id) references customer(id) on delete restrict
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
  CREATE TABLE orderrow (
-ordernumber INTEGER PRIMARY KEY NOT NULL,
-rownumber SMALLINT NOT NULL,
-prodnumber INTEGER NOT NULL,
-pcs INTEGER NOT NULL,
-FOREIGN KEY (ordernumber)
-REFERENCES customorder (ordernumber)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+     order_id int not null,
+     index order_id(order_id),
+     foreign key (order_id) references customorder(id) on delete restrict,
+     product_id int not null,
+     index product_id(product_id),
+     foreign key (product_id) references product(id) on delete restrict,
+     pcs int not null
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE registered_user(  
     reg_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -111,7 +115,6 @@ CREATE TABLE sale (
 id INTEGER PRIMARY KEY AUTO_INCREMENT,
 discount DECIMAL(10,2),
 prod_id int NOT NULL,
-index produt(produt),
-foreign key (product_id) references product(id)
+foreign key (prod_id) references product(id)
 on delete restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
