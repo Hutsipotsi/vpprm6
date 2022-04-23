@@ -106,3 +106,12 @@ CREATE TABLE registered_user(
     email VARCHAR(50) NOT NULL,
     password VARCHAR(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE sale (
+id INTEGER PRIMARY KEY AUTO_INCREMENT,
+discount DECIMAL(10,2),
+prod_id int NOT NULL,
+index produt(produt),
+foreign key (product_id) references product(id)
+on delete restrict
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
