@@ -118,3 +118,12 @@ prod_id int NOT NULL,
 foreign key (prod_id) references product(id)
 on delete restrict
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+INSERT INTO sale (discount, prod_id) VALUES
+(20, 12),
+(20, 13),
+(20, 10),
+(10, 14),
+(10, 7),
+(15, 11);
