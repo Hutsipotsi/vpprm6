@@ -58,8 +58,8 @@ insert into product (name, price, image, prodcategory) values
 insert into product (name, price, image, prodcategory) values
 ('GRIPeq G2 Shoulder Bag', 129.00, 'backpack.png', 3),
 ('GRIPeq BX3 Tour Bag', 129.00, 'bag1.jpg', 3),
-('Innova Discover Pack', 29.90, 'bag3.jpg', 3),
-('Super HeroPack 2.0', 129.00, 'bag2.jpg', 3);
+('Innova Discover Pack', 29.90, 'bag2.jpg', 3),
+('Super HeroPack 2.0', 129.00, 'bag3.jpg', 3);
 
 insert into discproperty (disc, type, plastic, speed, glide, turn, fade) values
 (1, 'Pituusdraiveri', 'DX', 9, 4, -2, 2),
