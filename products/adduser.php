@@ -8,27 +8,7 @@ $lname = filter_var($input->lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 $hash_pw = password_hash($pw, PASSWORD_DEFAULT);
-
-function getRegUser(){
-    require_once 'db.php';
-    
-    try {
-        $pdo = openDb();
-        //Create SQL query to get all rows from a table
-        $sql = "SELECT * FROM registered_user";
-        //Execute the query
-        $people = $pdo->query($sql);
-        
-        return $people->fetchAll();
-    }catch(PDOException $e) {
-        throw $e;
-    }
-}
-
-function addUser($fname, $lname, $email, $pw) {
-    
-    require_once 'db.php';
-    
+  
     //Tarkistetaan onko muttujia asetettu
     if( !isset($fname) || !isset($lname) || !isset($email) || !isset($pw) ) {
         echo "Tietoja puuttui!! Ei voida rekisteröidä henkilöä";
@@ -41,10 +21,10 @@ function addUser($fname, $lname, $email, $pw) {
         exit;
     }
     
-    
     try{
-        $pdo->beginTransaction();
         $pdo = openDb();
+        $pdo->beginTransaction();
+
         //Suoritetaan parametrien lisääminen tietokantaan.
         $sql = "INSERT INTO registered_user (fname, lname, email, password) VALUES ($fname, $lname, $email, $pw)";
         $statement = $pdo->prepare($sql);
@@ -63,4 +43,3 @@ function addUser($fname, $lname, $email, $pw) {
         echo "Käyttäjää ei voitu rekisteröidä<br>";
         echo $e->getMessage();
     }
-}
