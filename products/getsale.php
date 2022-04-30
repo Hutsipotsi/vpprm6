@@ -7,7 +7,7 @@ $parameters = explode('/',$uri);
 
 try {
     $db = openDb();
-    $sql = "SELECT DISTINCT product.name, price, image, productgroup.name AS category, ROUND(price-(price*discount/100),2) AS 'discount' FROM product, sale, productgroup WHERE sale.prod_id = product.id AND product.prodcategory = productgroup.id;";
+    $sql = "SELECT DISTINCT product.id, product.name, price, image, productgroup.name AS category, ROUND(price-(price*discount/100),2) AS 'discount' FROM product, sale, productgroup WHERE sale.prod_id = product.id AND product.prodcategory = productgroup.id;";
     $query = $db->query($sql);
     $sales = $query->fetchAll(PDO::FETCH_ASSOC);
 
