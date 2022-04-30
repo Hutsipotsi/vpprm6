@@ -127,3 +127,6 @@ INSERT INTO sale (discount, prod_id) VALUES
 (10, 14),
 (10, 7),
 (15, 11);
+
+insert into product (name, price, image, prodcategory) values 
+('Viking Discs Royal', 169.00, 'disc-catcher1.jpg', 2);
