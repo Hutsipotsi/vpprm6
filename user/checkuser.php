@@ -41,9 +41,6 @@ try {
     else {
         header('HTTP/1.1 200 OK');
         echo json_encode(array('firstname' => $row["fname"]));
-        
-        //Jos käyttäjä tunnistettu, talletetaan käyttäjän tiedot sessioon
-        $_SESSION['email'] = $row['email']; 
     }
     
 } catch (PDOException $e) {
