@@ -8,14 +8,18 @@ $category = $parameters[1];
 
 try {
     $db = openDb();
+    $sql = "select * from productgroup where id = $category";
+    $query = $db->query($sql);
+    $productgroup = $query->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "select * from product";
+    $sql = "select * from product where prodcategory = $category";
     $query = $db->query($sql);
     $products = $query->fetchAll(PDO::FETCH_ASSOC);
 
     header('HTTP/1.1 200 OK');
     echo json_encode(array(
-        "products" => $products['name']
+        "productgroup" => $productgroup['name'],
+        "products" => $products
     ), JSON_PRETTY_PRINT);
 }
 

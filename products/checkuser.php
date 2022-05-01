@@ -38,6 +38,10 @@ $pw = filter_var($input->pw, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         if(!password_verify($pw, $row["password"] )){
             throw new Exception("Väärä salasana!!");
         }
+
+         //Jos käyttäjä tunnistettu, talletetaan käyttäjän tiedot sessioon
+         $_SESSION['email'] = $row['email']; 
+
     }catch(PDOException $e){
         $pdo->rollback();
         throw $e;
