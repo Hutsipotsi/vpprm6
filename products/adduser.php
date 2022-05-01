@@ -6,8 +6,8 @@ $input = json_decode(file_get_contents('php://input'));
 $fname = filter_var($input->fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $lname = filter_var($input->lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$pw = filter_var($input->pw, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-$hash_pw = password_hash($pw, PASSWORD_DEFAULT);
   
     //Tarkistetaan onko muttujia asetettu
     if( !isset($fname) || !isset($lname) || !isset($email) || !isset($pw) ) {
@@ -16,7 +16,7 @@ $hash_pw = password_hash($pw, PASSWORD_DEFAULT);
     }
     
     //Tarkistetaan, ettei tyhjiä arvoja muuttujissa
-    if(empty($fname) || empty($lname) || empty($email)  || empty($password) ){
+    if(empty($fname) || empty($lname) || empty($email)  || empty($pw) ){
         echo "Et voi asettaa tyhjiä arvoja!!";
         exit;
     }
@@ -26,13 +26,13 @@ $hash_pw = password_hash($pw, PASSWORD_DEFAULT);
         $pdo->beginTransaction();
 
         //Suoritetaan parametrien lisääminen tietokantaan.
-        $sql = "INSERT INTO registered_user (fname, lname, email, password) VALUES ($fname, $lname, $email, $pw)";
+        $sql = "INSERT INTO registered_user (fname, lname, email, password) VALUES ('?', '?', '?', '?')";
         $statement = $pdo->prepare($sql);
         $statement->bindParam(1, $fname);
-        $statement->bindParam(3, $lname);
-        $statement->bindParam(2, $email);
+        $statement->bindParam(2, $lname);
+        $statement->bindParam(3, $email);
         
-        $hash_pw = password_hash($password, PASSWORD_DEFAULT);$statement->bindParam(4, $hash_pw);
+        $hash_pw = password_hash($pw, PASSWORD_DEFAULT);$statement->bindParam(4, $hash_pw);
         
         $statement->execute();
         $pdo->commit();
