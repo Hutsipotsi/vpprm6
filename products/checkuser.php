@@ -1,6 +1,10 @@
 <?php
-function checkUser($email, $pw){
+require_once '../inc/functions.php';
+require_once '../inc/headers.php';
 
+$input = json_decode(file_get_contents('php://input'));
+$email = filter_var($input->email, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$pw = filter_var($input->pw, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     //Tarkistetaan onko muttujia asetettu
     if( !isset($email) || !isset($pw) ){
@@ -20,8 +24,7 @@ function checkUser($email, $pw){
         //Haetaan käyttäjä annetulla käyttäjänimellä
         $sql = "SELECT email, password FROM registered_user WHERE email=?";
         $statement = $pdo->prepare($sql);
-        $statement->bindParam(1, $uname);
-        //$statement->bindParam(2, $admin);
+        $statement->bindParam(1, $email);
         $statement->execute();
         $pdo->commit();
         
@@ -40,7 +43,7 @@ function checkUser($email, $pw){
         throw $e;
     }
 
-}
+
 
 function logout(){
     //Tyhjennetään ja tuhotaan nykyinen sessio.
