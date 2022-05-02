@@ -12,7 +12,9 @@ try {
     $query = $db->query($sql);
     $productgroup = $query->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "select * from product where prodcategory = $category";
+    $sql = "select * from product";
+    if($category == 1) $sql .= " inner join discproperty ON product.id = discproperty.disc";
+    $sql .= " where prodcategory = $category";
     $query = $db->query($sql);
     $products = $query->fetchAll(PDO::FETCH_ASSOC);
 
