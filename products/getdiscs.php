@@ -3,10 +3,10 @@
 require_once '../inc/functions.php';
 require_once '../inc/headers.php';
 
-$speed = $_GET["nopeus"];
-$glide = $_GET["liito"];
-$turn = $_GET["vakaus"];
-$fade = $_GET["feidi"];
+$speed = $_GET["speed"];
+$glide = $_GET["glide"];
+$turn = $_GET["turn"];
+$fade = $_GET["fade"];
 
 $and = false;
 
