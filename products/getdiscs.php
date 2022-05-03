@@ -1,4 +1,5 @@
 <?php
+
 require_once '../inc/functions.php';
 require_once '../inc/headers.php';
 
@@ -16,9 +17,9 @@ try {
     $query = $db->query($sql);
     $productgroup = $query->fetch(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT * FROM product";//id = $category";
+    $sql = "SELECT * FROM product";
+    $sql .= " INNER JOIN discproperty ON product.id = discproperty.disc";
     if($speed != "null" || $glide != "null" || $turn!= "null" || $fade != "null") {
-        $sql .= " INNER JOIN discproperty ON product.id = discproperty.disc";
 
         if($speed != "null") {
             $sql .= " WHERE discproperty.speed = $speed";
@@ -57,3 +58,5 @@ try {
 catch (PDOException $pdoex) {
     returnError($pdoex);
 }
+
+// EOF
